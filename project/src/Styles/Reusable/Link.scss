@@ -1,0 +1,15 @@
+@import './Colors.scss';
+
+.link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: $light-color;
+	text-decoration: none;
+	height: 42px;
+	padding: 0 0.5rem;
+}
+.link:hover p {
+	border-bottom: 2px solid $light-color;
+	margin-bottom: -2px !important;
+}

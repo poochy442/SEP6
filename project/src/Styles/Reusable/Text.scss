@@ -1,0 +1,59 @@
+/*
+Collects all the text styles used in this project in one document.
+Guide used for setting up typography:
+https://blog.prototypr.io/8-rules-for-perfect-typography-in-ui-21b37f6f23ce
+*/
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Montserrat:wght@500&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', sans-serif;
+}
+p {
+	font-family: 'Lora', serif;
+}
+
+/* Font sizes */
+h1 {
+	font-size: 6.68em;
+}
+h2 {
+	font-size: 5.34em;
+}
+h3 {
+	font-size: 4.27em;
+}
+h4 {
+	font-size: 3.42em;
+}
+h5 {
+	font-size: 2.73em;
+}
+h6 {
+	font-size: 2.19em;
+}
+p {
+	font-size: 1.75em;
+}
+
+/* General text layout */
+h1, h2, h3, h4, h5, h6, p {
+	text-align: left;
+	line-height: 3rem;
+	margin: 0px;
+}
+
+h1 {
+	line-height: 9rem;
+}
+
+h2, h3, h4 {
+	line-height: 6rem;
+}
+
+// Helper class to center text for quotes
+.quote {
+	text-align: center;
+}

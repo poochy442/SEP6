@@ -1,0 +1,21 @@
+@import '../Reusable/Colors.scss';
+
+.login {
+	width: fit-content;
+	
+	.avatar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 3rem;
+		height: 3rem;
+		background-color: $dark-color;
+		color: $light-color;
+		border-radius: 50%;
+		border: 2px solid $dark-accent;
+
+		p {
+			font-size: 1.5rem;
+		}
+	}
+}
