@@ -52,7 +52,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@main
+        uses: actions/checkout@v2
 
       - name: Download Artifact
         uses: actions/download-artifact@main
