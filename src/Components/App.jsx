@@ -17,11 +17,13 @@ const App = () => {
 	return (
 		<BrowserRouter>
 			<Header />
-			<Routes>
-				<Route exact path='/' element={<Home />} />
-				<Route path='/review' element={<Review />} />
-				<Route path='*' element={<ErrorPage />} />
-			</Routes>
+			<div className='main'>
+				<Routes>
+					<Route exact path='/' element={<Home />} />
+					<Route path='/review' element={<Review />} />
+					<Route path='*' element={<ErrorPage />} />
+				</Routes>
+			</div>
 			<Footer />
 		</BrowserRouter>
 	);

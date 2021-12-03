@@ -1,0 +1,31 @@
+@import '../Reusable/Colors.scss';
+
+.movieSearch {
+	position: relative;
+	border: 1px solid $main-color;
+
+	.movieSearchInput{
+		width: 100%;
+		border: none;
+		border-bottom: 1px solid $main-color;
+		height: 2rem;
+	}
+	.movieSearchInput:focus {outline: 2px solid $main-color}
+
+	.movieDropdownItem {
+		display: flex;
+		flex-flow: row nowrap;
+		padding: 1rem;
+		border-bottom: 1px solid $light-accent;
+
+		.movieImage {
+			height: 16rem;
+		}
+		.movieTitle {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+		}
+	}
+}
