@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { Form } from 'react-bootstrap'
+import React, { useState } from 'react'
 import { TMBDClient } from '../TMBDClient'
 
 import '../../Styles/Movie/MovieSearch.scss'
@@ -13,6 +12,7 @@ const MovieSearch = () => {
 	const handleChange = (e) => {
 		e.preventDefault();
 		setMovie(e.target.value);
+		console.log(movie)
 
 		// Search for movie if length is greater than 3
 		if(e.target.value.length >= 3){
