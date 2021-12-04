@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link, Navigate } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { connect } from 'react-redux';
 import { logIn } from '../../../Store/Actions/authActions';
 
 import '../../../Styles/Pages/Auth/Login.scss'
-import { useSelector } from 'react-redux';
 
 const LogIn = (props) => {
 	const location = useLocation();

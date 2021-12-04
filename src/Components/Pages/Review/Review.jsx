@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router';
 import MovieSearch from '../../Movie/MovieSearch';
-import { TMBDClient } from '../../TMBDClient';
 
 import '../../../Styles/Pages/Review/Review.scss';
 

@@ -8,7 +8,7 @@ const LoginHeader = (props) => {
 	const { auth } = props;
 	const links = auth.uid ? (
 		<div className='authLinks'>
-			<a className='link' onClick={props.logOut}><p>Log out</p></a>
+			<button className='buttonLink' onClick={props.logOut}><p>Log out</p></button>
 		</div>
 	) : (
 		<div className='authLinks'>

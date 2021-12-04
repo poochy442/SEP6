@@ -6,6 +6,25 @@
 	justify-content: center;
 	align-items: center;
 
+	.buttonLink {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: none;
+		text-decoration: none;
+		background-color: transparent;
+		height: 100%;
+		color: $light-color;
+		padding: 0 0.5rem;
+		cursor: pointer;
+	}
+	.buttonLink:hover p {
+		border-bottom: 2px solid $light-color;
+		margin-bottom: -2px !important;
+		color: $light-color;
+		cursor: pointer !important;
+	}
+
 	.authLinks {
 		display: flex;
 		flex-flow: row nowrap;
@@ -24,6 +43,7 @@
 		border-radius: 50%;
 		border: 2px solid $dark-color;
 		cursor: pointer;
+		margin-left: 2rem;
 
 		p {
 			font-size: 1.5rem;

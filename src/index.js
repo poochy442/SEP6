@@ -11,15 +11,13 @@ import 'firebase/compat/firestore'
 import { applyMiddleware, createStore } from 'redux';
 import rootReducer from './Store/Reducers/rootReducer';
 import { createFirestoreInstance, getFirestore} from 'redux-firestore';
-import { getFirebase, isLoaded } from 'react-redux-firebase'
+import { getFirebase } from 'react-redux-firebase'
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 // Bootstrap styling
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import { useSelector } from 'react-redux';
-import LoadingPage from './Components/Pages/LoadingPage';
 
 const rrfConfig = {
   userProfile: 'users',
@@ -47,20 +45,11 @@ const rrfProps = {
   createFirestoreInstance
 }
 
-// Ensures that authentication is loaded before showing the content
-const UseAuth = ({children}) => {
-  const auth = useSelector(state => state.firebase.auth);
-  if(!isLoaded(auth)) return <LoadingPage />;
-  return children
-}
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-        {/* <UseAuth> */}
-          <App />
-        {/* </UseAuth> */}
+        <App />
       </ReactReduxFirebaseProvider>
     </Provider>
   </React.StrictMode>,
