@@ -1,0 +1,19 @@
+@import '../Reusable/Colors.scss';
+
+.loadingPage {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
+
+	.navigation {
+		width: 100%;
+		height: 8%;
+		background-color: $main-color;
+	}
+	.content {
+		width: 100%;
+		height: 100%;
+		background-color: $dark-color;
+	}
+}

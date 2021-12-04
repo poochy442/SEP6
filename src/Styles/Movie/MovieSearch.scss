@@ -3,14 +3,18 @@
 .movieSearch {
 	position: relative;
 	border: 1px solid $main-color;
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+	background-color: $light-color;
 
 	.movieSearchInput{
 		width: 100%;
 		border: none;
 		border-bottom: 1px solid $main-color;
-		height: 2rem;
+		height: 4rem;
+		font-size: 1.75em;
 	}
-	.movieSearchInput:focus {outline: 2px solid $main-color}
+	.movieSearchInput:hover, .movieSearchInput:focus {outline: 3px solid $main-color}
 
 	.movieDropdownItem {
 		display: flex;
@@ -27,5 +31,13 @@
 			align-items: center;
 			width: 100%;
 		}
+	}
+	.movieDropdownItem:hover {
+		background-color: $light-accent;
+		cursor: pointer;
+		outline: 2px solid $main-color;
+	}
+	.movieDropdownItem:last-child{
+		border-bottom: none;
 	}
 }

@@ -1,7 +1,17 @@
 @import '../Reusable/Colors.scss';
 
-.login {
-	width: fit-content;
+.loginHeader {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+
+	.authLinks {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		align-items: center;
+	}
 	
 	.avatar {
 		display: flex;
@@ -9,13 +19,15 @@
 		align-items: center;
 		width: 3rem;
 		height: 3rem;
-		background-color: $dark-color;
+		background-color: $dark-accent;
 		color: $light-color;
 		border-radius: 50%;
-		border: 2px solid $dark-accent;
+		border: 2px solid $dark-color;
+		cursor: pointer;
 
 		p {
 			font-size: 1.5rem;
+			cursor: pointer;
 		}
 	}
 }
