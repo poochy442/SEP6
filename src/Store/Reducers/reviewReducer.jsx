@@ -6,7 +6,7 @@ const reviewReducer = (state = initState, action) => {
 			console.log('success');
 			return state;
 		case 'CREATE_REVIEW_ERROR':
-			console.log('Review error');
+			console.log('Review error', action);
 			return state;
 		default:
 			return state;

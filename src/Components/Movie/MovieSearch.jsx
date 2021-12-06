@@ -24,11 +24,14 @@ const MovieSearch = ({movie, setMovie, isReviewing}) => {
 				if(res.status === 200){
 					console.log(res);
 					setSearch(res.data.results.map(element => {
+						let date = element.release_date.split('-');
+						console.log(date);
 						return {
 							id: element.id,
 							title: element.title,
 							imgURL: element.poster_path,
-							releaseDate: element.release_date,
+							releaseDate: date[2] + '-' + date[1] + '-' + date[0],
+							plot: element.overview
 						}
 					}));
 					setSearching(true);
@@ -48,7 +51,7 @@ const MovieSearch = ({movie, setMovie, isReviewing}) => {
 			{isSearching ? search.map((element, index) => {
 				if(isReviewing)
 					return (
-						<div to='/review' state={element} className='movieDropdownItem' key={index} onClick={() => setMovie(element)} >
+						<div to='/review' className='movieDropdownItem' key={index} onClick={() => setMovie(element)} >
 							<img className='movieImage' src={'https://image.tmdb.org/t/p/w500' + element.imgURL} alt='Movie poster' />
 							<p className='movieTitle'>{element.title}</p>
 						</div>

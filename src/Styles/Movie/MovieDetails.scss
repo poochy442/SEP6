@@ -1,0 +1,43 @@
+@import '../Reusable/Colors.scss';
+
+.movieDetails {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	border-radius: 1rem;
+	background-color: $light-color;
+	text-decoration: none;
+	color: $dark-color;
+
+	.movieImage {
+		height: 20rem;
+	}
+
+	.movieInformation{
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding: 0 1rem;
+
+		.movieTitle {
+			width: 100%;
+			text-align: center;
+		}
+
+		.releaseDate {
+			width: 100%;
+			text-align: center;
+			font-size: 1.5em;
+			color: $light-accent;
+			margin-top: -1rem !important;
+		}
+
+		.plotDetails {
+			padding: 0 1rem;
+		}
+	}	
+}
