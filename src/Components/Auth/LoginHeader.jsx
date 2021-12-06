@@ -5,10 +5,13 @@ import { logOut } from '../../Store/Actions/authActions';
 import '../../Styles/Login/LoginHeader.scss';
 
 const LoginHeader = (props) => {
-	const { auth } = props;
+	const { auth, profile } = props;
 	const links = auth.uid ? (
 		<div className='authLinks'>
 			<button className='buttonLink' onClick={props.logOut}><p>Log out</p></button>
+			<div className='avatar'>
+				<p>{profile.initials}</p>
+			</div>
 		</div>
 	) : (
 		<div className='authLinks'>
@@ -20,16 +23,14 @@ const LoginHeader = (props) => {
 	return (
 		<div className='loginHeader'>
 			{links}
-			<div className='avatar'>
-				<p>KJ</p>
-			</div>
 		</div>
 	)
 }
 
 const mapStateToProps = (state) => {
 	return {
-		auth: state.firebase.auth
+		auth: state.firebase.auth,
+		profile: state.firebase.profile
 	}
 }
 

@@ -15,6 +15,7 @@ const SignUp = (props) => {
 		password: '',
 		repeatPassword: ''
 	});
+	const [error, setError] = useState(null);
 	const {authError, auth} = props;
 	
 	const handleValueChange = (e) => {
@@ -22,6 +23,35 @@ const SignUp = (props) => {
 			...input,
 			[e.target.id]: e.target.value
 		})
+	}
+
+	const handleSignup = () => {
+		if(confirmContent()) return
+
+		props.signUp(input)
+	}
+
+	const confirmContent = () => {
+		if(input.email === ''){
+			setError('Must provide an email.')
+			return false
+		}
+		if(input.username === ''){
+			setError('Must provide a username.')
+			return false
+		}
+		if(input.password === '' || input.repeatPassword === ''){
+			setError('Password cannot be empty')
+			return false
+		}
+		if(input.password !== input.repeatPassword){
+			setError('Passwords must match')
+			return false
+		}
+
+		// Request is good
+		setError(null)
+		return true;
 	}
 
 	// Authentication guard
@@ -49,11 +79,13 @@ const SignUp = (props) => {
 						<input type='password' id='repeatPassword' placeholder='Input password...' value={input.repeatPassword} onChange={handleValueChange} />
 					</div>
 					{authError ? (
-						<p className='errorText'>{authError}</p>
-					) : (null)}
+						<p className='errorText'>{authError.message}</p>
+					) : error ? (
+						<p className='errorText'>{error}</p>
+					) : null}
 				</div>
 				<div className='buttonContainer'>
-					<button className='signUpButton button' onClick={() => props.signUp(input)}>Sign up</button>
+					<button className='signUpButton button' onClick={handleSignup}>Sign up</button>
 					<div className='loginContainer'>
 						<p>Already have an account?</p>
 						<Link to='/login' state={input.email} className='loginButton button'>Log in</Link>

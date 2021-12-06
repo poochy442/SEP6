@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useLocation } from 'react-router';
 import MovieSearch from '../../Movie/MovieSearch';
 
@@ -11,11 +11,6 @@ const Review = () => {
 	const passedMovie = location.state;
 	location.state = null;
 	const [movie, setMovie] = useState(passedMovie ? passedMovie : null);
-	
-
-	useEffect(() => {
-		console.log('Review movie: ', movie);
-	}, [movie])
 
 	return (
 		<div className='review'>

@@ -1,4 +1,5 @@
 @import '../Reusable/Colors.scss';
+@import '../Reusable/Text.scss';
 
 .header {
 	display: flex;
@@ -24,6 +25,7 @@
 			
 			p {
 				cursor: pointer;
+				font-size: $font-size-medium;
 			}
 		} 
 	}

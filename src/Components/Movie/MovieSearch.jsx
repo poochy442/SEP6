@@ -51,8 +51,10 @@ const MovieSearch = ({movie, setMovie, isReviewing}) => {
 					return (
 						<div to='/review' className='movieDropdownItem' key={index} onClick={() => setMovie(element)} >
 							<img className='movieImage' src={'https://image.tmdb.org/t/p/w500' + element.imgURL} alt='Movie poster' />
-							<p className='movieTitle'>{element.title}</p>
-							<p className='releaseDate'>{element.releaseDate}</p>
+							<div className='movieInfo'>
+								<p className='movieTitle'>{element.title}</p>
+								<p className='releaseDate'>{element.releaseDate}</p>
+							</div>
 						</div>
 					)
 				else

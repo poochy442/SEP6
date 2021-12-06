@@ -11,6 +11,7 @@ function MovieReview(props) {
 	}
 	const [input, setInput] = useState(initialInput)
 	const [error, setError] = useState(null)
+	const [success, setSuccess] = useState(null)
 	const { movie } = props;
 
 	const handleChange = (e) => {
@@ -48,6 +49,8 @@ function MovieReview(props) {
 	const placeReview = () => {
 		if(confirmContent()){
 			props.createReview({review: input, movie: movie});
+			setSuccess('Review sent')
+			setInput(initialInput)
 		} else {
 			console.log('Place review error')
 		}
@@ -100,6 +103,9 @@ function MovieReview(props) {
 				<button className='button confirmButton' onClick={placeReview}>Review</button>
 				<button className='button resetButton' onClick={() => setInput(initialInput)}>Reset</button>
 			</div>
+			{success ? (
+				<p className='succesText'>{success}</p>
+			) : null}
 		</div>
 	)
 }

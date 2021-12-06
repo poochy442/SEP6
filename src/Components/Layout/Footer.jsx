@@ -7,7 +7,7 @@ const Footer = () => {
 				<p>BestMovies</p>
 			</div>
 			<div className='rightFooter'>
-				<a href='/' className='link'><p>GitHub</p></a>
+				<a href='https://github.com/poochy442/SEP6' className='link'><p>GitHub</p></a>
 				<a href='/' className='link'><p>YouTube Playlist</p></a>
 			</div>
 		</section>

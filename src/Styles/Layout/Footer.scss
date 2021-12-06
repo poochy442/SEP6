@@ -1,4 +1,5 @@
 @import '../Reusable/Colors.scss';
+@import '../Reusable/Text.scss';
 
 .footer {
 	display: flex;
@@ -18,5 +19,9 @@
 		flex-flow: row nowrap;
 		justify-content: space-around;
 		align-items: center;
+	}
+
+	.leftFooter p {
+		font-size: $font-size-medium;
 	}
 }

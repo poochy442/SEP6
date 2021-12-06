@@ -14,6 +14,7 @@ import SignUp from './Pages/Auth/SignUp';
 import '../Styles/App.scss';
 import '../Styles/Reusable/Text.scss';
 import '../Styles/Reusable/Link.scss';
+import '../Styles/Reusable/Avatar.scss';
 
 const App = () => {
 	return (

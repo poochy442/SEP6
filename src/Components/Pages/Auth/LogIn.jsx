@@ -5,14 +5,17 @@ import { connect } from 'react-redux';
 import { logIn } from '../../../Store/Actions/authActions';
 
 import '../../../Styles/Pages/Auth/Login.scss'
+import { useDispatch } from 'react-redux';
 
 const LogIn = (props) => {
 	const location = useLocation();
 	const passedEmail = location.state;
+	const dispatch = useDispatch();
 	const [input, setInput] = useState({
 		email: passedEmail ? passedEmail : '',
 		password: ''
 	});
+	const [error, setError] = useState(null);
 	const {authError, auth} = props;
 
 	const handleValueChange = (e) => {
@@ -20,6 +23,28 @@ const LogIn = (props) => {
 			...input,
 			[e.target.id]: e.target.value
 		})
+	}
+
+	const handleLogin = () => {
+		if(confirmContent())
+			props.login(input);
+		else
+			dispatch({ type: 'SIGNOUT_SUCCESS' })
+	}
+
+	const confirmContent = () => {
+		if(input.email === ''){
+			setError('Must provide an email.')
+			return false
+		}
+		if(input.password === ''){
+			setError('Password cannot be empty')
+			return false
+		}
+
+		// Request is good
+		setError(null)
+		return true;
 	}
 
 	// Authentication guard
@@ -39,11 +64,13 @@ const LogIn = (props) => {
 						<input type='password' id='password' placeholder='Input password...' value={input.password} onChange={handleValueChange} />
 					</div>
 					{authError ? (
-						<p className='errorText'>{authError.message}</p>
-					) : (null)}
+						<p className='errorText'>{authError}</p>
+					) : error ? (
+						<p className='errorText'>{error}</p>
+					) : null}
 				</div>
 				<div className='buttonContainer'>
-					<button className='loginButton button' onClick={() => props.login(input)}>Log in</button>
+					<button className='loginButton button' onClick={handleLogin}>Log in</button>
 					<div className='signUpContainer'>
 						<p>Don't have an account?</p>
 						<Link to='/signup' state={input.email} className='signUpButton button'>Sign up</Link>
