@@ -22,10 +22,8 @@ const MovieSearch = ({movie, setMovie, isReviewing}) => {
 				}
 			}).then((res) => {
 				if(res.status === 200){
-					console.log(res);
 					setSearch(res.data.results.map(element => {
 						let date = element.release_date.split('-');
-						console.log(date);
 						return {
 							id: element.id,
 							title: element.title,
@@ -54,13 +52,17 @@ const MovieSearch = ({movie, setMovie, isReviewing}) => {
 						<div to='/review' className='movieDropdownItem' key={index} onClick={() => setMovie(element)} >
 							<img className='movieImage' src={'https://image.tmdb.org/t/p/w500' + element.imgURL} alt='Movie poster' />
 							<p className='movieTitle'>{element.title}</p>
+							<p className='releaseDate'>{element.releaseDate}</p>
 						</div>
 					)
 				else
 					return (
 						<Link to='/review' state={element} className='movieDropdownItem' key={index} >
 							<img className='movieImage' src={'https://image.tmdb.org/t/p/w500' + element.imgURL} alt='Movie poster' />
-							<p className='movieTitle'>{element.title}</p>
+							<div className='movieInfo'>
+								<p className='movieTitle'>{element.title}</p>
+								<p className='releaseDate'>{element.releaseDate}</p>
+							</div>
 						</Link>
 					)
 			}) : null}

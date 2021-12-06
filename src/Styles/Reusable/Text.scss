@@ -1,7 +1,7 @@
 /*
 Collects all the text styles used in this project in one document.
 Guide used for setting up typography:
-https://blog.prototypr.io/8-rules-for-perfect-typography-in-ui-21b37f6f23ce
+https://type-scale.com/
 */
 
 /* Google Font */
@@ -19,26 +19,25 @@ p {
 }
 
 /* Font sizes */
+$font-size-xlarge: 2.488rem;
+$font-size-large: 2.074em;
+$font-size-medium: 1.728rem;
+$font-size-small: 1.44rem;
+$font-size-xsmall: 1rem;
 h1 {
-	font-size: 6.68em;
+	font-size: $font-size-large;
 }
 h2 {
-	font-size: 5.34em;
+	font-size: $font-size-large;
 }
 h3 {
-	font-size: 4.27em;
+	font-size: $font-size-medium;
 }
 h4 {
-	font-size: 3.42em;
-}
-h5 {
-	font-size: 2.73em;
-}
-h6 {
-	font-size: 2.19em;
+	font-size: $font-size-small;
 }
 p {
-	font-size: 1.75em;
+	font-size: $font-size-xsmall;
 }
 
 /* General text layout */

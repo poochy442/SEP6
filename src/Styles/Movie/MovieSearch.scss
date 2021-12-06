@@ -1,4 +1,5 @@
 @import '../Reusable/Colors.scss';
+@import '../Reusable/Text.scss';
 
 .movieSearch {
 	position: relative;
@@ -28,12 +29,28 @@
 		.movieImage {
 			height: 16rem;
 		}
-		.movieTitle {
+		.movieInfo {
+			width: 100%;
 			display: flex;
+			flex-flow: column nowrap;
 			justify-content: center;
 			align-items: center;
-			width: 100%;
-			cursor: pointer !important;
+
+			.movieTitle {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				cursor: pointer !important;
+				font-size: $font-size-large !important;
+			}
+			.releaseDate {
+				width: 100%;
+				text-align: center;
+				font-size: 1.5em;
+				color: $light-accent;
+				font-size: $font-size-small !important;
+			}
 		}
 	}
 	.movieDropdownItem:hover {
