@@ -5,12 +5,10 @@ import { connect } from 'react-redux';
 import { logIn } from '../../../Store/Actions/authActions';
 
 import '../../../Styles/Pages/Auth/Login.scss'
-import { useDispatch } from 'react-redux';
 
 const LogIn = (props) => {
 	const location = useLocation();
 	const passedEmail = location.state;
-	const dispatch = useDispatch();
 	const [input, setInput] = useState({
 		email: passedEmail ? passedEmail : '',
 		password: ''
