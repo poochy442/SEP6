@@ -26,9 +26,8 @@ const SignUp = (props) => {
 	}
 
 	const handleSignup = () => {
-		if(confirmContent()) return
-
-		props.signUp(input)
+		if(confirmContent())
+			props.signUp(input)
 	}
 
 	const confirmContent = () => {
@@ -79,7 +78,7 @@ const SignUp = (props) => {
 						<input type='password' id='repeatPassword' placeholder='Input password...' value={input.repeatPassword} onChange={handleValueChange} />
 					</div>
 					{authError ? (
-						<p className='errorText'>{authError.message}</p>
+						<p className='errorText'>{authError}</p>
 					) : error ? (
 						<p className='errorText'>{error}</p>
 					) : null}

@@ -28,8 +28,6 @@ const LogIn = (props) => {
 	const handleLogin = () => {
 		if(confirmContent())
 			props.login(input);
-		else
-			dispatch({ type: 'SIGNOUT_SUCCESS' })
 	}
 
 	const confirmContent = () => {

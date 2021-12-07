@@ -11,13 +11,12 @@ import 'firebase/compat/firestore'
 import { applyMiddleware, createStore } from 'redux';
 import rootReducer from './Store/Reducers/rootReducer';
 import { createFirestoreInstance, getFirestore} from 'redux-firestore';
-import { getFirebase } from 'react-redux-firebase'
+import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 // Bootstrap styling
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 
 const rrfConfig = {
   userProfile: 'users',
