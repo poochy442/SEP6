@@ -4,7 +4,7 @@ import MovieSearch from '../../Movie/MovieSearch';
 
 import '../../../Styles/Pages/Review/Review.scss';
 import MovieDetails from '../../Movie/MovieDetails';
-import MovieReview from '../../Movie/MovieReview';
+import MovieReview from '../../Review/MovieReview';
 
 const Review = () => {
 	const location = useLocation();

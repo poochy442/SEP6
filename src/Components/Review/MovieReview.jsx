@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { createReview } from '../../Store/Actions/ReviewActions'
-import '../../Styles/Movie/MovieReview.scss'
+import '../../Styles/Review/MovieReview.scss'
 
 function MovieReview(props) {
 	const initialInput = {

@@ -15,6 +15,7 @@ import '../Styles/App.scss';
 import '../Styles/Reusable/Text.scss';
 import '../Styles/Reusable/Link.scss';
 import '../Styles/Reusable/Avatar.scss';
+import ReviewList from './Review/ReviewList';
 
 const App = () => {
 	return (
@@ -26,6 +27,7 @@ const App = () => {
 					<Route path='/review' element={<Review />} />
 					<Route path='/login' element={<LogIn />} />
 					<Route path='/signup' element={<SignUp />} />
+					<Route path='/reviewlist' element={<ReviewList movieId={512200} />} />
 					<Route path='*' element={<ErrorPage />} />
 				</Routes>
 			</div>
