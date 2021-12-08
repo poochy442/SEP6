@@ -1,0 +1,49 @@
+@import '../Reusable/Colors.scss';
+
+.reviewDetails {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	border-radius: 2rem;
+	border: none;
+	margin-bottom: 3rem;
+	background-color: $light-color;	
+	width: 60%;
+
+	.scoreDisplay {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		align-items: center;
+
+		.scoreStar {
+			margin: 0 2px;
+			cursor: default;
+		}
+	}
+
+	.bottomContainer {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+		.reviewerContainer {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: center;
+			align-items: center;
+
+			.avatar {
+				margin-left: 0;
+				margin-right: 2rem;
+			}
+		}
+		.reviewDate {
+
+		}
+	}
+}

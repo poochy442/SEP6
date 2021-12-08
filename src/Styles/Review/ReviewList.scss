@@ -1,0 +1,11 @@
+.reviewList {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+
+	.reviewHeader {
+		text-align: center;
+		margin: 2rem 0 !important;
+	}
+}

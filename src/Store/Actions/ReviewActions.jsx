@@ -1,5 +1,3 @@
-
-
 export const createReview = ({review, movie}) => {
 	return (dispatch, getState, {getFirebase, getFirestore}) => {
 		// make async call to database
@@ -11,14 +9,18 @@ export const createReview = ({review, movie}) => {
 			score: review.score + '',
 			reviewerId: firebase.auth().currentUser.uid,
 			createdAt: new Date()
-		}).then((res) => {
+		}).then(async (res) => {
 			const reviewId = res.id;
 			const movieRef = firestore.collection('movies').doc(movie.id + '');
-			if(movieRef.exists){
+			const movieDoc = await movieRef.get();
+
+			if(movieDoc.exists){
+				console.log('Updating movie')
 				movieRef.update({
 					reviews: firebase.firestore.FieldValue.arrayUnion(reviewId)
 				});
 			} else {
+				console.log('Setting movie')
 				movieRef.set({
 					imgURL: movie.imgURL,
 					plot: movie.plot,
