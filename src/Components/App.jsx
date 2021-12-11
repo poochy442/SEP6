@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 // Pages
 import Home from './Pages/Home';
+import Ratings from './Pages/Ratings/Ratings';
 import ErrorPage from './Pages/ErrorPage';
 import Review from './Pages/Review/Review';
 import LogIn from './Pages/Auth/LogIn';
@@ -25,6 +26,7 @@ const App = () => {
 				<Routes>
 					<Route exact path='/' element={<Home />} />
 					<Route path='/review' element={<Review />} />
+					<Route path='/ratings' element={<Ratings />} />
 					<Route path='/login' element={<LogIn />} />
 					<Route path='/signup' element={<SignUp />} />
 					<Route path='/reviewlist' element={<ReviewList movieId={512200} />} />
