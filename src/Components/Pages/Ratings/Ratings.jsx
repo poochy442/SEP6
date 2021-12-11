@@ -2,7 +2,7 @@
 //import { useLocation } from 'react-router';
 
 import '../../../Styles/Pages/Ratings/Ratings.scss';
-//import { getRatings } from '../../../Store/Actions/RatingsActions';
+import { getRatings } from '../../../Store/Actions/RatingsActions';
 
 
 
