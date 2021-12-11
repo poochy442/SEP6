@@ -2,10 +2,11 @@
 //import { useLocation } from 'react-router';
 
 import '../../../Styles/Pages/Ratings/Ratings.scss';
+//import { getRatings } from '../../../Store/Actions/RatingsActions';
+
 
 
 const Ratings = () => {
-
 	return (
 		<div className='ratings'>
             <div className='topRated'>

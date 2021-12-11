@@ -4,19 +4,12 @@ export const getRatings = () => {
 		const firestore = getFirestore();
 		const firebase = getFirebase();
 
-		firestore.collection('reviews').get({
-			...review,
-			score: review.score 
-		}).then(async (res) => {
-			const movieRating = firestore.collection('reviews').doc(review.score);
-			const ratingDoc = await movieRating.get();
+		firebase.collection('reviews').get()
+		.then((res) => {
+			firestore.collection('reviews').doc(res.reviews).get()
+			/*const highestRate = Math.max(...ratingDoc)
+			const lowestRate = Math.min(...ratingDoc)*/
 
-			if(ratingDoc.exists){
-				console.log('Updating movie rating')
-				movieRating.update({
-					reviews: firebase.firestore.FieldValue.arrayUnion(reviewScore)
-				});
-            }
 			dispatch({ type: 'GET_RATING_SUCCESS' });
 		}).catch((err) => {
 			dispatch({ type: 'GET_RATING_ERROR' }, err);
