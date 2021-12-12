@@ -9,6 +9,7 @@ import ReviewDetails from '../Review/ReviewDetails';
 
 import '../../Styles/Pages/Comment.scss';
 import MovieComment from '../Comment/MovieComment';
+import { Link } from 'react-router-dom';
 
 const Comment = () => {
 	const location = useLocation();
@@ -34,6 +35,7 @@ const Comment = () => {
 		<div className='reviewComponent'>
 			<h1>Your review</h1>
 			<ReviewDetails review={userReview} />
+			<Link to='/review' state={movie} className='editReviewButton'>Edit review</Link>
 		</div>
 		) : <p>No review</p>;
 

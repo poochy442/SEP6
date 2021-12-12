@@ -21,6 +21,19 @@
 			.reviewDetails {
 				margin-bottom: 0;
 			}
+			.editReviewButton {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-decoration: none;
+				color: $dark-color;
+				background-color: $main-color;
+				width: 8rem;
+				height: 4rem;
+				border: none;
+				border-radius: 2rem;
+				margin-top: 1rem;
+			}
 		}
 
 		.commentTitle {
