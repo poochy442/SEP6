@@ -1,6 +1,6 @@
 @import '../Reusable/Colors.scss';
 
-.reviewDetails {
+.commentDetails {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -12,18 +12,6 @@
 	background-color: $light-color;	
 	width: 60%;
 
-	.scoreDisplay {
-		display: flex;
-		flex-flow: row nowrap;
-		justify-content: center;
-		align-items: center;
-
-		.scoreStar {
-			margin: 0 2px;
-			cursor: default;
-		}
-	}
-
 	.bottomContainer {
 		display: flex;
 		flex-flow: row nowrap;
@@ -31,7 +19,7 @@
 		align-items: center;
 		width: 100%;
 
-		.reviewerContainer {
+		.authorContainer {
 			display: flex;
 			flex-flow: row nowrap;
 			justify-content: center;
@@ -42,7 +30,7 @@
 				margin-right: 2rem;
 			}
 		}
-		.reviewDate {
+		.commentDate {
 			color: $light-accent;
 		}
 	}

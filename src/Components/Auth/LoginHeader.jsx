@@ -8,6 +8,8 @@ const LoginHeader = (props) => {
 	const { auth, profile } = props;
 	const links = auth.uid ? (
 		<div className='authLinks'>
+			<a href='/review' className='link'><p>Review</p></a>
+			<a href='/comment' className='link'><p>Discuss</p></a>
 			<button className='buttonLink' onClick={props.logOut}><p>Log out</p></button>
 			<div className='avatar'>
 				<p>{profile.initials}</p>

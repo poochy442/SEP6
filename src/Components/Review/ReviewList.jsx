@@ -15,14 +15,14 @@ const ReviewList = (props) => {
 	if(!isLoaded(movieSelector) || !isLoaded(reviewSelector)) return <div className='loading'>Loading...</div>
 
 	// Configure data
-	const movie = movieSelector[parseInt(movieId)]
-	const reviews = movie ? movie.reviews.map((element) => {
+	const movie = movieSelector ? movieSelector[parseInt(movieId, 10)] : null
+	const reviews = movie && movie.reviews ? movie.reviews.map((element) => {
 		return reviewSelector[element]
 	}) : null;
 	const reviewsComponent = reviews && reviews !== [] ? reviews.map((review, index) => {
 		return (<ReviewDetails key={index} review={review} />)
 	}) : (
-		<p>No reviews yet</p>
+		<p className='emptyText'>No reviews yet</p>
 	)
 
 	return (

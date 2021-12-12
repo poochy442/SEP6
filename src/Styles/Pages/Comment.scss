@@ -1,0 +1,53 @@
+@import '../Reusable/Colors.scss';
+@import '../Reusable/Text.scss';
+
+.comment {
+	width: 80%;
+	
+	.commentComponent {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		
+		.reviewComponent {
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			padding: 2rem 0;
+
+			.reviewDetails {
+				margin-bottom: 0;
+			}
+			.editReviewButton {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-decoration: none;
+				color: $dark-color;
+				background-color: $main-color;
+				width: 8rem;
+				height: 4rem;
+				border: none;
+				border-radius: 2rem;
+				margin-top: 1rem;
+			}
+		}
+
+		.commentTitle {
+			margin: 2rem 0 !important;
+			text-align: center;
+		}
+		.reviewButton {
+			text-decoration: none;
+			color: $light-color;
+			border-radius: 2rem;
+			margin: 1rem 0;
+			padding: 1rem 2rem;
+			font-size: $font-size-medium;
+			background-color: $main-color;
+		}
+	}
+}

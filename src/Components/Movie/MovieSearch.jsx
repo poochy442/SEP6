@@ -5,7 +5,7 @@ import '../../Styles/Movie/MovieSearch.scss'
 import { Link } from 'react-router-dom';
 
 // Custom Form Component that searches for movies and display them in a drop-down
-const MovieSearch = ({setMovie, isReviewing, redirect}) => {
+const MovieSearch = ({setMovie, isReviewing, isCommenting, redirect}) => {
 	const [search, setSearch] = useState([]);
 	const [isSearching, setSearching] = useState(false);
 	const [query, setQuery] = useState('');
@@ -51,7 +51,7 @@ const MovieSearch = ({setMovie, isReviewing, redirect}) => {
 		<div className='movieSearch'>
 			<input type='text' placeholder='Search for a movie...' className='movieSearchInput' value={query} onChange={handleChange} />
 			{isSearching ? search.map((element, index) => {
-				if(isReviewing)
+				if(isReviewing || isCommenting)
 					return (
 						<div className='movieDropdownItem' key={index} onClick={() => handleClick(element)} >
 							<img className='movieImage' src={'https://image.tmdb.org/t/p/w500' + element.imgURL} alt='Movie poster' />
