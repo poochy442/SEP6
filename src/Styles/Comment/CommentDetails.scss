@@ -11,4 +11,27 @@
 	margin-bottom: 3rem;
 	background-color: $light-color;	
 	width: 60%;
+
+	.bottomContainer {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+		.authorContainer {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: center;
+			align-items: center;
+
+			.avatar {
+				margin-left: 0;
+				margin-right: 2rem;
+			}
+		}
+		.commentDate {
+			color: $light-accent;
+		}
+	}
 }

@@ -8,6 +8,7 @@ import CommentList from '../Comment/CommentList';
 import ReviewDetails from '../Review/ReviewDetails';
 
 import '../../Styles/Pages/Comment.scss';
+import MovieComment from '../Comment/MovieComment';
 
 const Comment = () => {
 	const location = useLocation();
@@ -42,6 +43,7 @@ const Comment = () => {
 				<div className='commentComponent'>
 					<MovieDetails movie={movie} />
 					{reviewContainer}
+					<MovieComment movie={movie} />
 					<CommentList movieId={movie.id} />
 				</div>
 			) : (
