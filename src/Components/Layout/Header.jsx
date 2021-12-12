@@ -5,11 +5,10 @@ const Header = () => {
 	return (
 		<section className='header'>
 			<div className='logo'>
-				LOGO
+				BestMovies
 			</div>
 			<div className='nav'>
 				<a href='/' className='link'><p>Home</p></a>
-				<a href='/review' className='link'><p>Review</p></a>
 				<LoginHeader />
 			</div>
 		</section>

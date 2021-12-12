@@ -7,6 +7,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './Pages/Home';
 import ErrorPage from './Pages/ErrorPage';
 import Review from './Pages/Review';
+import Movie from './Pages/Movie';
+import Comment from './Pages/Comment';
 import LogIn from './Pages/Auth/LogIn';
 import SignUp from './Pages/Auth/SignUp';
 
@@ -15,7 +17,6 @@ import '../Styles/App.scss';
 import '../Styles/Reusable/Text.scss';
 import '../Styles/Reusable/Link.scss';
 import '../Styles/Reusable/Avatar.scss';
-import Movie from './Pages/Movie';
 
 const App = () => {
 	return (
@@ -26,6 +27,7 @@ const App = () => {
 					<Route exact path='/' element={<Home />} />
 					<Route path='/review' element={<Review />} />
 					<Route path='/movie' element={<Movie />} />
+					<Route path='comment' element={<Comment />} />
 					<Route path='/login' element={<LogIn />} />
 					<Route path='/signup' element={<SignUp />} />
 					<Route path='*' element={<ErrorPage />} />

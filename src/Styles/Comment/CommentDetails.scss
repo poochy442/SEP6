@@ -1,0 +1,14 @@
+@import '../Reusable/Colors.scss';
+
+.commentDetails {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	border-radius: 2rem;
+	border: none;
+	margin-bottom: 3rem;
+	background-color: $light-color;	
+	width: 60%;
+}

@@ -15,23 +15,31 @@ export const createReview = ({review, movie}) => {
 			const movieDoc = await movieRef.get();
 
 			if(movieDoc.exists){
-				console.log('Updating movie')
 				movieRef.update({
 					reviews: firebase.firestore.FieldValue.arrayUnion(reviewId)
 				});
 			} else {
-				console.log('Setting movie')
 				movieRef.set({
 					imgURL: movie.imgURL,
 					plot: movie.plot,
 					releaseDate: movie.releaseDate,
 					title: movie.title,
-					reviews: firebase.firestore.FieldValue.arrayUnion(reviewId)
+					reviews: firebase.firestore.FieldValue.arrayUnion(reviewId),
+					comments: []
 				})
 			}
 			dispatch({ type: 'CREATE_REVIEW_SUCCESS' });
 		}).catch((err) => {
 			dispatch({ type: 'CREATE_REVIEW_ERROR' }, err);
 		})
+	}
+}
+
+export const updateReview = ({review}) => {
+	return (dispatch, getState, {getFirebase, getFirestore}) => {
+		const firestore = getFirestore();
+
+		const reviewRef = firestore.collection('reviews').doc(review.id + '')
+		reviewRef.update(review)
 	}
 }

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { createReview } from '../../Store/Actions/ReviewActions'
+import React, { useEffect, useState } from 'react'
+import { connect, useSelector } from 'react-redux'
+import { isLoaded, useFirestoreConnect } from 'react-redux-firebase'
+import { createReview, updateReview } from '../../Store/Actions/reviewActions'
 import '../../Styles/Review/MovieReview.scss'
 
 function MovieReview(props) {
@@ -13,6 +14,27 @@ function MovieReview(props) {
 	const [error, setError] = useState(null)
 	const [success, setSuccess] = useState(null)
 	const { movie } = props;
+
+	useFirestoreConnect(['reviews']);
+	const reviewSelector = useSelector((state) => state.firestore.data.reviews)
+	const uidSelector = useSelector((state) => state.firebase.auth.uid);
+
+	useEffect(() => {
+		if(isLoaded(reviewSelector) && isLoaded(uidSelector)){
+			const reviews = Object.values(reviewSelector);
+			const reviewIds = Object.keys(reviewSelector);
+
+			reviews.forEach((element, index) => {
+				if(element.reviewerId === uidSelector){
+					setInput({...element, id: reviewIds[index]});
+				}
+			});
+		}
+	}, [reviewSelector, uidSelector])
+
+	useEffect(() => {
+		console.log(input)
+	}, [input])
 
 	const handleChange = (e) => {
 		setInput({
@@ -46,11 +68,15 @@ function MovieReview(props) {
 		return true;
 	}
 
-	const placeReview = () => {
+	const handleConfirm = () => {
 		if(confirmContent()){
-			props.createReview({review: input, movie: movie});
-			setSuccess('Review sent')
-			setInput(initialInput)
+			if(input.id){
+				props.updateReview({review: input})
+				setSuccess('Review updated')
+			} else {
+				props.createReview({review: input, movie: movie});
+				setSuccess('Review sent')
+			}
 		} else {
 			console.log('Place review error')
 		}
@@ -58,24 +84,24 @@ function MovieReview(props) {
 
 	const scoreContainer = (
 		<div className='scoreInput'>
-			<div className='score' onClick={() => handleClick(1)} >
-				<span className={input.score === 1 ? 'scoreCircle active' : 'scoreCircle'} />
+			<div className='score' onClick={() => handleClick('1')} >
+				<span className={input.score === '1' ? 'scoreCircle active' : 'scoreCircle'} />
 				<p>1</p>
 			</div>
-			<div className='score' onClick={() => handleClick(2)} >
-				<span className={input.score === 2 ? 'scoreCircle active' : 'scoreCircle'} />
+			<div className='score' onClick={() => handleClick('2')} >
+				<span className={input.score === '2' ? 'scoreCircle active' : 'scoreCircle'} />
 				<p>2</p>
 			</div>
-			<div className='score' onClick={() => handleClick(3)} >
-				<span className={input.score === 3 ? 'scoreCircle active' : 'scoreCircle'} />
+			<div className='score' onClick={() => handleClick('3')} >
+				<span className={input.score === '3' ? 'scoreCircle active' : 'scoreCircle'} />
 				<p>3</p>
 			</div>
-			<div className='score' onClick={() => handleClick(4)} >
-				<span className={input.score === 4 ? 'scoreCircle active' : 'scoreCircle'} />
+			<div className='score' onClick={() => handleClick('4')} >
+				<span className={input.score === '4' ? 'scoreCircle active' : 'scoreCircle'} />
 				<p>4</p>
 			</div>
-			<div className='score' onClick={() => handleClick(5)} >
-				<span className={input.score === 5 ? 'scoreCircle active' : 'scoreCircle'} />
+			<div className='score' onClick={() => handleClick('5')} >
+				<span className={input.score === '5' ? 'scoreCircle active' : 'scoreCircle'} />
 				<p>5</p>
 			</div>
 		</div>
@@ -100,7 +126,7 @@ function MovieReview(props) {
 				<p className='errorText'>{error}</p>
 			) : null}
 			<div className='buttonContainer'>
-				<button className='button confirmButton' onClick={placeReview}>Review</button>
+				<button className='button confirmButton' onClick={handleConfirm}>Review</button>
 				<button className='button resetButton' onClick={() => setInput(initialInput)}>Reset</button>
 			</div>
 			{success ? (
@@ -112,7 +138,8 @@ function MovieReview(props) {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		createReview: (creds) => dispatch(createReview(creds))
+		createReview: (creds) => dispatch(createReview(creds)),
+		updateReview: (creds) => dispatch(updateReview(creds))
 	}
 }
 

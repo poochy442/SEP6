@@ -1,13 +1,13 @@
 @import '../Reusable/Colors.scss';
 
-.reviewList {
+.commentList {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
 
-	.reviewHeader {
+	.commentHeader {
 		text-align: center;
 		margin: 2rem 0 !important;
 	}
