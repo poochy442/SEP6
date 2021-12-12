@@ -5,7 +5,7 @@ import '../../Styles/Movie/MovieSearch.scss'
 import { Link } from 'react-router-dom';
 
 // Custom Form Component that searches for movies and display them in a drop-down
-const MovieSearch = ({movie, setMovie, isReviewing}) => {
+const MovieSearch = ({setMovie, isReviewing, redirect}) => {
 	const [search, setSearch] = useState([]);
 	const [isSearching, setSearching] = useState(false);
 	const [query, setQuery] = useState('');
@@ -43,13 +43,17 @@ const MovieSearch = ({movie, setMovie, isReviewing}) => {
 		}
 	}
 
+	const handleClick = (element) => {
+		setMovie(element);
+	}
+
 	return (
 		<div className='movieSearch'>
 			<input type='text' placeholder='Search for a movie...' className='movieSearchInput' value={query} onChange={handleChange} />
 			{isSearching ? search.map((element, index) => {
 				if(isReviewing)
 					return (
-						<div to='/review' className='movieDropdownItem' key={index} onClick={() => setMovie(element)} >
+						<div className='movieDropdownItem' key={index} onClick={() => handleClick(element)} >
 							<img className='movieImage' src={'https://image.tmdb.org/t/p/w500' + element.imgURL} alt='Movie poster' />
 							<div className='movieInfo'>
 								<p className='movieTitle'>{element.title}</p>
@@ -59,7 +63,7 @@ const MovieSearch = ({movie, setMovie, isReviewing}) => {
 					)
 				else
 					return (
-						<Link to='/review' state={element} className='movieDropdownItem' key={index} >
+						<Link to={redirect} state={element} className='movieDropdownItem' key={index} >
 							<img className='movieImage' src={'https://image.tmdb.org/t/p/w500' + element.imgURL} alt='Movie poster' />
 							<div className='movieInfo'>
 								<p className='movieTitle'>{element.title}</p>

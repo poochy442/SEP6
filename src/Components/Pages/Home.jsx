@@ -7,8 +7,8 @@ const Home = () => {
 
 	return (
 		<div className='home'>
-			<h1>Movie Search</h1>
-			<MovieSearch movie={movie} setMovie={setMovie} />
+			<h1>Search for a movie to see it's reviews</h1>
+			<MovieSearch movie={movie} setMovie={setMovie} redirect='/movie' />
 		</div>
 	)
 }

@@ -1,0 +1,21 @@
+@import '../Reusable/Colors.scss';
+@import '../Reusable/Text.scss';
+
+.moviePage {
+	.movieComponent {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+
+		.reviewButton {
+			text-decoration: none;
+			color: $light-color;
+			border-radius: 2rem;
+			margin: 1rem 0;
+			padding: 1rem 2rem;
+			font-size: $font-size-medium;
+			background-color: $main-color;
+		}
+	}
+}

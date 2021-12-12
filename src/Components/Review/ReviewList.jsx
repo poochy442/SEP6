@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { isLoaded, useFirestoreConnect } from 'react-redux-firebase';
-import MovieDetails from '../Movie/MovieDetails';
 import ReviewDetails from './ReviewDetails';
 
 import '../../Styles/Review/ReviewList.scss';
@@ -17,12 +16,10 @@ const ReviewList = (props) => {
 
 	// Configure data
 	const movie = movieSelector[parseInt(movieId)]
-	const reviews = movie.reviews.map((element) => {
+	const reviews = movie ? movie.reviews.map((element) => {
 		return reviewSelector[element]
-	})
-	console.log(movie, reviews)
-	const reviewsComponent = reviews !== [] ? reviews.map((review, index) => {
-		console.log(review)
+	}) : null;
+	const reviewsComponent = reviews && reviews !== [] ? reviews.map((review, index) => {
 		return (<ReviewDetails key={index} review={review} />)
 	}) : (
 		<p>No reviews yet</p>
@@ -30,7 +27,6 @@ const ReviewList = (props) => {
 
 	return (
 		<div className='reviewList'>
-			<MovieDetails movie={movie} />
 			<h1 className='reviewHeader'>Reviews</h1>
 			{reviewsComponent}
 		</div>
