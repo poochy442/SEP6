@@ -9,13 +9,14 @@ import MovieReview from '../../Review/MovieReview';
 const Review = () => {
 	const location = useLocation();
 	const passedMovie = location.state;
-	location.state = null;
 	const [movie, setMovie] = useState(passedMovie ? passedMovie : null);
+	const [isReviewing, setIsReviewing] = useState(true);
 
 	return (
 		<div className='review'>
-			{movie ? (
+			{movie && isReviewing ? (
 				<div className='movieReview'>
+					<div className='backButton' onClick={() => setIsReviewing(false)}>X</div>
 					<MovieDetails movie={movie} />
 					<h1 className='reviewHeader'>Review this movie</h1>
 					<MovieReview movie={movie} />
