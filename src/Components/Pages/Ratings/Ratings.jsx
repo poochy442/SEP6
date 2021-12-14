@@ -18,23 +18,24 @@ const Ratings = (props) => {
 		props.getRatings()
 		
 	  }, []);
-	  console.log(props.ratingsData);
+
 	return (
 		<div className='ratings'>
             <div className='topRated'>
-                <p>Best Review</p>
+                <p>Best Review Movie: {props.ratingsData? props.ratingsData['max'].movietitle : 'not available'}  </p>
 			<div className='movieInformation'>
-				<p className='movieTitle'> Review title = {props.ratingsData? props.ratingsData['7z1YM11bEvowlDd4ZNqX'].title : 'not available'} </p>
-				<p className='releaseDate'>Review score = {props.ratingsData? props.ratingsData['7z1YM11bEvowlDd4ZNqX'].score : 'not available'} </p>
-				<p className='plotDetails'>Review = {props.ratingsData? props.ratingsData['7z1YM11bEvowlDd4ZNqX'].review : 'not available'}</p>
+			<p className='ratingTitle'> Review title : {props.ratingsData? props.ratingsData['max'].title : 'not available'} </p>
+				<p className='ratingScore'>Review score : {props.ratingsData? props.ratingsData['max'].score : 'not available'} </p>
+				<p className='ratingDetails'>Review : {props.ratingsData? props.ratingsData['max'].review : 'not available'}</p>
 			</div>
             </div>
             <div className='lowRated'>
-                <p>Worst Review</p>
+                <p>Worst Review Movie: {props.ratingsData? props.ratingsData['min'].movietitle : 'not available'}</p>
 			<div className='movieInformation'>
-                <p className='movieTitle'> Review title = {props.ratingsData? props.ratingsData['DaSbS334uhaBtcLZBQsR'].title : 'not available'} </p>
-				<p className='releaseDate'>Review score = {props.ratingsData? props.ratingsData['DaSbS334uhaBtcLZBQsR'].score : 'not available'} </p>
-				<p className='plotDetails'>Review = {props.ratingsData? props.ratingsData['DaSbS334uhaBtcLZBQsR'].review : 'not available'}</p>
+			<p className='ratingTitle'> Review title : {props.ratingsData? props.ratingsData['min'].title : 'not available'} </p>
+				<p className='ratingScore'>Review score : {props.ratingsData? props.ratingsData['min'].score : 'not available'} </p>
+				<p className='ratingDetails'>Review : {props.ratingsData? props.ratingsData['min'].review : 'not available'}</p>
+                
 			</div>
             </div>
 		</div>
@@ -48,7 +49,7 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 const mapStateToProps = (state) => {
-	console.log(state);
+	
 	return {
 	  ratingsData: state.ratingsReducer.ratingsData
 	}
