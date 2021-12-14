@@ -22,19 +22,19 @@ const Ratings = (props) => {
 	return (
 		<div className='ratings'>
             <div className='topRated'>
-                <p>Top Rated</p>
+                <p>Best Review</p>
 			<div className='movieInformation'>
-				<p className='movieTitle'> Movie score = {props.ratingsData? props.ratingsData['7z1YM11bEvowlDd4ZNqX'].score : 'notavailabke'} </p>
-				<p className='releaseDate'>Release Date</p>
-				<p className='plotDetails'>Plot Details</p>
+				<p className='movieTitle'> Review title = {props.ratingsData? props.ratingsData['7z1YM11bEvowlDd4ZNqX'].title : 'not available'} </p>
+				<p className='releaseDate'>Review score = {props.ratingsData? props.ratingsData['7z1YM11bEvowlDd4ZNqX'].score : 'not available'} </p>
+				<p className='plotDetails'>Review = {props.ratingsData? props.ratingsData['7z1YM11bEvowlDd4ZNqX'].review : 'not available'}</p>
 			</div>
             </div>
             <div className='lowRated'>
-                <p>Low Rated</p>
+                <p>Worst Review</p>
 			<div className='movieInformation'>
-                <p className='movieTitle'>Movie Title</p>
-				<p className='releaseDate'>Release Date</p>
-				<p className='plotDetails'>Plot Details</p>
+                <p className='movieTitle'> Review title = {props.ratingsData? props.ratingsData['DaSbS334uhaBtcLZBQsR'].title : 'not available'} </p>
+				<p className='releaseDate'>Review score = {props.ratingsData? props.ratingsData['DaSbS334uhaBtcLZBQsR'].score : 'not available'} </p>
+				<p className='plotDetails'>Review = {props.ratingsData? props.ratingsData['DaSbS334uhaBtcLZBQsR'].review : 'not available'}</p>
 			</div>
             </div>
 		</div>
