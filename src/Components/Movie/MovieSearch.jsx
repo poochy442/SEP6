@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TMBDClient } from '../TMBDClient'
+import { TMBDClient } from '../Api/TMBDClient'
 
 import '../../Styles/Movie/MovieSearch.scss'
 import { Link } from 'react-router-dom';

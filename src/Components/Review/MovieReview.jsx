@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect, useSelector } from 'react-redux'
-import { isLoaded, useFirestoreConnect } from 'react-redux-firebase'
+import { isEmpty, isLoaded, useFirestoreConnect } from 'react-redux-firebase'
 import { createReview, updateReview } from '../../Store/Actions/reviewActions'
 import '../../Styles/Review/MovieReview.scss'
 
@@ -20,7 +20,7 @@ function MovieReview(props) {
 	const uidSelector = useSelector((state) => state.firebase.auth.uid);
 
 	useEffect(() => {
-		if(isLoaded(reviewSelector) && isLoaded(uidSelector)){
+		if(isLoaded(reviewSelector) && !isEmpty(reviewSelector) && isLoaded(uidSelector)){
 			const reviews = Object.values(reviewSelector);
 			const reviewIds = Object.keys(reviewSelector);
 
