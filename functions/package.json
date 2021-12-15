@@ -1,0 +1,7 @@
+{
+  "name": "review",
+	"description": "Update movie score on review",
+	"dependencies": {
+		"@google-cloud/firestore": "^5.0.0"
+	}
+}
