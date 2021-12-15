@@ -17,6 +17,7 @@ import '../Styles/App.scss';
 import '../Styles/Reusable/Text.scss';
 import '../Styles/Reusable/Link.scss';
 import '../Styles/Reusable/Avatar.scss';
+import PopularMovies from './Pages/PopularMovies';
 
 const App = () => {
 	return (
@@ -27,7 +28,8 @@ const App = () => {
 					<Route exact path='/' element={<Home />} />
 					<Route path='/review' element={<Review />} />
 					<Route path='/movie' element={<Movie />} />
-					<Route path='comment' element={<Comment />} />
+					<Route path='/top-movies' element={<PopularMovies />} />
+					<Route path='/comment' element={<Comment />} />
 					<Route path='/login' element={<LogIn />} />
 					<Route path='/signup' element={<SignUp />} />
 					<Route path='*' element={<ErrorPage />} />
