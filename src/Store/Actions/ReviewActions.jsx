@@ -10,6 +10,7 @@ export const createReview = ({review, movie}) => {
 			...review,
 			score: review.score + '',
 			reviewerId: firebase.auth().currentUser.uid,
+			movieId: movie.id,
 			createdAt: new Date()
 		}).then(async (res) => {
 			const reviewId = res.id;
@@ -42,7 +43,9 @@ export const createReview = ({review, movie}) => {
 						reviewID: reviewId,
 						movieID: movieDoc.id
 					},
-					body: review
+					body: {
+						review: review
+					}
 				}).then((res) => {
 					console.log('function success', res)
 				}).catch((err) => {

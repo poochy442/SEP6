@@ -25,12 +25,12 @@ function MovieReview(props) {
 			const reviewIds = Object.keys(reviewSelector);
 
 			reviews.forEach((element, index) => {
-				if(element.reviewerId === uidSelector){
+				if(element.reviewerId === uidSelector && element.movieId === movie.id){
 					setInput({...element, id: reviewIds[index]});
 				}
 			});
 		}
-	}, [reviewSelector, uidSelector])
+	}, [reviewSelector, uidSelector, movie])
 
 	useEffect(() => {
 		console.log(input)
