@@ -32,10 +32,6 @@ function MovieReview(props) {
 		}
 	}, [reviewSelector, uidSelector, movie])
 
-	useEffect(() => {
-		console.log(input)
-	}, [input])
-
 	const handleChange = (e) => {
 		setInput({
 			...input,

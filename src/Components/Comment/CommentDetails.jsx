@@ -13,8 +13,6 @@ const CommentDetails = (props) => {
 	}])
 	const author = useSelector((state) => state.firestore.data.author);
 
-	console.log(comment, author)
-
 	return (
 		<div className='commentDetails'>
 			<p>{comment.comment}</p>

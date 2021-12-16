@@ -10,10 +10,8 @@ const {Firestore, FieldValue} = require('@google-cloud/firestore');
 	const firestore = new Firestore();
 
 	const method = req.method;
-	console.log('Request received -- method', method)
 
 	const body = req.body;
-	console.log('Received request body', body);
 
 	res.set('Access-Control-Allow-Origin', '*');
 
@@ -34,32 +32,23 @@ const {Firestore, FieldValue} = require('@google-cloud/firestore');
 
 		const movie = movieDoc._fieldsProto;
 
-		console.log('Firebase received', movie);
-
 		const oldReviews = movie.reviews ? movie.reviews.arrayValue : {values: []};
 		const oldReviewLength = oldReviews.values.length;
 		const oldScore = movie.score ? movieDoc.get('score') : 0;
 
-		console.log('Received values', oldReviews, oldScore);
-
 		const totalPrior = oldReviewLength * oldScore;
-		console.log('totalPrior calculation', oldReviewLength, oldScore)
 
 		const newScore = (totalPrior + parseInt(review.score)) / (oldReviewLength + 1);
-		console.log('Newscore calculation:', totalPrior, review.score, oldReviewLength + 1)
 
-
-		console.log('--- Logs ---');
-		console.log('IDS:', reviewID, movieID);
-		console.log('Score calculation', oldScore, oldReviewLength, review, movieID);
-		console.log('New score', newScore);
-		console.log('--- End of section ---')
+		console.info('--- Received request ---');
+		console.info('Movie ID:', movieID);
+		console.info('Old score: ', oldScore);
+		console.info('New score', newScore);
 
 		movieRef.update({
 			reviews: FieldValue.arrayUnion(reviewID),
 			score: newScore
 		}).then(() => {
-			console.log('Success');
 			res.status(200).end();
 			return
 		}).catch((err) => {
