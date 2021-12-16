@@ -6,7 +6,7 @@ const MovieDetails = (props) => {
 
 	const scoreDisplay = (
 		<div className='scoreDisplay'>
-			<div className='scoreContainer'>
+			{movie.score ? <div className='scoreContainer'>
 				<p className='scoreHeader'>Score: </p>
 				<div className="scoreDetails">
 					<div className="starContainer">
@@ -26,11 +26,11 @@ const MovieDetails = (props) => {
 					</div>
 					<p className='scoreText'>{movie.score}</p>
 				</div>
-			</div>
-			<div className="reviewContainer">
+			</div> : <div>No score yet</div>}
+			{movie.reviews ? <div className="reviewContainer">
 				<p className="reviewHeader">Reviews: </p>
 				<p className='reviewAmount'>{movie.reviews.length}</p>
-			</div>
+			</div> : null}
 		</div>
 	)
 
