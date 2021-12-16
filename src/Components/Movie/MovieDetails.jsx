@@ -6,19 +6,31 @@ const MovieDetails = (props) => {
 
 	const scoreDisplay = (
 		<div className='scoreDisplay'>
-			<span className='scoreStar'>&#9733;</span>
-			<span className='scoreStar'>&#9733;</span>
-			<span className='scoreStar'>&#9733;</span>
-			<span className='scoreStar'>&#9733;</span>
-			<span className='scoreStar'>&#9733;</span>
-			<div className='scoreMask' style={{
-				display: 'inline-block',
-				position: 'absolute',
-				right: 0,
-				width: (100 - (movie.score / 5) * 100) + '%',
-				backgroundColor: 'white',
-				opacity: 0.75
-			}}>&nbsp;</div>
+			<div className='scoreContainer'>
+				<p className='scoreHeader'>Score: </p>
+				<div className="scoreDetails">
+					<div className="starContainer">
+						<span className='scoreStar'>&#9733;</span>
+						<span className='scoreStar'>&#9733;</span>
+						<span className='scoreStar'>&#9733;</span>
+						<span className='scoreStar'>&#9733;</span>
+						<span className='scoreStar'>&#9733;</span>
+						<div className='scoreMask' style={{
+							display: 'inline-block',
+							position: 'absolute',
+							right: 0,
+							width: (100 - (movie.score / 5) * 100) + '%',
+							backgroundColor: 'white',
+							opacity: 0.75
+						}}>&nbsp;</div>
+					</div>
+					<p className='scoreText'>{movie.score}</p>
+				</div>
+			</div>
+			<div className="reviewContainer">
+				<p className="reviewHeader">Reviews: </p>
+				<p className='reviewAmount'>{movie.reviews.length}</p>
+			</div>
 		</div>
 	)
 

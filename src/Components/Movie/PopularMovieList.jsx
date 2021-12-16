@@ -22,21 +22,33 @@ const sortMovieArray = (movies) => {
 	console.log('Sorting movies', movies)
 
 	for(const movie of movies) {
-		if(sortedArray === []){
+		console.log('Sorting', movie)
+		if(sortedArray.length === 0){
+			console.log('First movie')
 			sortedArray.push(movie);
+		} else if(!movie.score) {
+			// No score, do nothing
 		} else {
-			let isGreater = false;
+			console.log('sortedArray', sortedArray)
 			let count = 0;
+			let isGreater = movie.score >= sortedArray[0].score;
 
-			while(isGreater === false && count < sortedArray.length){
+			if(!isGreater){
+				sortedArray.splice(0, 0, movie);
+				continue;
+			}
+
+			while(isGreater === true && count < sortedArray.length){
 				isGreater = movie.score >= sortedArray[count].score;
 				count += isGreater ? 1 : 0;
 			}
 
 			sortedArray.splice(count, 0, movie)
 		}
+		console.log('After insert', sortedArray)
 	};
 
+	console.log('Final array', sortedArray)
 	return sortedArray.reverse();
 }
 

@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { isLoaded, useFirestoreConnect } from 'react-redux-firebase'
 import PopularMovieList from '../Movie/PopularMovieList'
 
+import '../../Styles/Pages/PopularMovies.scss';
+
 function PopularMovies() {
 	useFirestoreConnect(['movies']);
 	const movieSelector = useSelector((state) => state.firestore.data.movies)
@@ -14,7 +16,7 @@ function PopularMovies() {
 
 	return (
 		<div className='popularMovies'>
-			<h1>Top rated movies:</h1>
+			<h1 className='popularMoviesHeader'>Top rated movies:</h1>
 			<PopularMovieList movies={movies} />
 		</div>
 	)

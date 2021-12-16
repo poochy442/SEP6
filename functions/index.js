@@ -25,7 +25,7 @@ const {Firestore, FieldValue} = require('@google-cloud/firestore');
 		console.info('Completed pre-flight check');
     res.status(204).send('');
   } else {
-		const review = body.review;
+		const review = body;
 		const reviewID = req.query.reviewID;
 		const movieID = req.query.movieID;
 
@@ -38,11 +38,16 @@ const {Firestore, FieldValue} = require('@google-cloud/firestore');
 
 		const oldReviews = movie.reviews ? movie.reviews.arrayValue : {values: []};
 		const oldReviewLength = oldReviews.values.length;
-		const oldScore = movie.score ? movie.score : 0;
+		const oldScore = movie.score ? movieDoc.get('score') : 0;
 
 		console.log('Received values', oldReviews, oldScore);
 
-		const newScore = ((oldReviewLength * oldScore) + parseInt(review.score)) / (oldReviewLength + 1);
+		const totalPrior = oldReviewLength * oldScore;
+		console.log('totalPrior calculation', oldReviewLength, oldScore)
+
+		const newScore = (totalPrior + parseInt(review.score)) / (oldReviewLength + 1);
+		console.log('Newscore calculation:', totalPrior, review.score, oldReviewLength + 1)
+
 
 		console.log('--- Logs ---');
 		console.log('IDS:', reviewID, movieID);

@@ -23,9 +23,7 @@ export const createReview = ({review, movie}) => {
 						reviewID: reviewId,
 						movieID: movieDoc.id
 					},
-					body: {
-						review: review
-					}
+					body: review
 				}).then((res) => {
 					console.log('function success', res)
 				}).catch((err) => {
@@ -43,9 +41,7 @@ export const createReview = ({review, movie}) => {
 						reviewID: reviewId,
 						movieID: movieDoc.id
 					},
-					body: {
-						review: review
-					}
+					body: review
 				}).then((res) => {
 					console.log('function success', res)
 				}).catch((err) => {
