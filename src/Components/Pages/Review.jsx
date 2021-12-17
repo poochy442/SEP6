@@ -6,6 +6,8 @@ import '../../Styles/Pages/Review.scss';
 import MovieDetails from '../Movie/MovieDetails';
 import MovieReview from '../Review/MovieReview';
 import { Link } from 'react-router-dom';
+import { isLoaded, useFirestoreConnect } from 'react-redux-firebase';
+import { useSelector } from 'react-redux';
 
 const Review = () => {
 	const location = useLocation();
@@ -17,6 +19,17 @@ const Review = () => {
 	useEffect(() => {
 		setIsReviewing(movie ? true : false)
 	}, [movie])
+
+	// Ensure newest data
+	useFirestoreConnect(['movies']);
+	const movieSelector = useSelector((state) => state.firestore.data.movies)
+
+	useEffect(() => {
+		if(movie && movie.id && isLoaded(movieSelector)){
+			const newMovie = movieSelector[movie.id];
+			setMovie(newMovie);
+		}
+	}, [movie, movieSelector])
 
 	return (
 		<div className='review'>

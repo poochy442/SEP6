@@ -12,7 +12,8 @@ function PopularMovies() {
 	// Ensure the selector has loaded
 	if(!isLoaded(movieSelector)) return <div className='loading'>Loading...</div>
 
-	const movies = Object.values(movieSelector)
+	const movieIds = Object.keys(movieSelector);
+	const movies = movieIds.map(id => {return {...movieSelector[id], id: id}})
 
 	return (
 		<div className='popularMovies'>

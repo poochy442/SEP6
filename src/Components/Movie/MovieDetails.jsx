@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import '../../Styles/Movie/MovieDetails.scss'
 
 const MovieDetails = (props) => {
-	const { movie } = props;
+	const { movie, redirect } = props;
 
 	const scoreDisplay = (
 		<div className='scoreDisplay'>
@@ -34,7 +35,17 @@ const MovieDetails = (props) => {
 		</div>
 	)
 
-	return (
+	const movieDetailsComponent = redirect ? (
+		<Link to={redirect} state={movie} className='movieDetails movieLink'>
+			<img className='movieImage' src={'https://image.tmdb.org/t/p/w500' + movie.imgURL} alt='Movie poster' />
+			<div className='movieInformation'>
+				<h1 className='movieTitle'>{movie.title}</h1>
+				<p className='releaseDate'>{movie.releaseDate}</p>
+				<p className='plotDetails'>{movie.plot}</p>
+				{scoreDisplay}
+			</div>
+		</Link>
+	) : (
 		<div className='movieDetails'>
 			<img className='movieImage' src={'https://image.tmdb.org/t/p/w500' + movie.imgURL} alt='Movie poster' />
 			<div className='movieInformation'>
@@ -43,6 +54,12 @@ const MovieDetails = (props) => {
 				<p className='plotDetails'>{movie.plot}</p>
 				{scoreDisplay}
 			</div>
+		</div>
+	)
+
+	return (
+		<div>
+			{movieDetailsComponent}
 		</div>
 	)
 }

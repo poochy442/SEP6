@@ -1,3 +1,5 @@
+@import '../Reusable/Colors.scss';
+
 .popularMovieList {
 	display: flex;
 	flex-flow: column nowrap;
@@ -10,5 +12,13 @@
 
 	div:last-child {
 		margin-bottom: 0;
+	}
+
+	.movieLink:hover {
+		text-decoration: none !important;
+		color: $dark-color;
+	}
+	.movieLink:hover h1, .movieLink:hover p {
+		cursor: pointer !important;
 	}
 }

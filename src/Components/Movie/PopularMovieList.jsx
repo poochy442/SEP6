@@ -4,11 +4,12 @@ import MovieDetails from './MovieDetails';
 import '../../Styles/Movie/PopularMovieList.scss';
 
 const PopularMovieList = ({movies}) => {
+	console.log('Popular movies', movies)
 	const sortedMovies = sortMovieArray(movies);
 
 	return (
 		<div className='popularMovieList'>
-			{sortedMovies.map((movie, index) => <MovieDetails key={index} movie={movie} />)}
+			{sortedMovies.map((movie, index) => <MovieDetails redirect='/movie' key={index} movie={movie} />)}
 		</div>
 	)
 }
